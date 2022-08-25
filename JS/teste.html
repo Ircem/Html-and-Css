@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="classePessoa.js"></script>
+</head>
+<body>
+<script>
+        var SSpessoa
+    function salva(){
+            SSpessoa = new pessoa(document.getElementById("Snome").value,document.getElementById("Ssobrenome").value, document.getElementById("Snacido").value)
+        
+    }
+    function SMostrar(){
+        const Mostrar = document.createElement('div')
+        Mostrar.innerHTML = (SSpessoa.nomeCompleto())
+        document.getElementById('mostrarnome').appendChild(Mostrar)
+    }
+
+    function salvacoockie(){
+        document.cookie = 'Snome='+ document.getElementById('Snome').value
+    }
+
+    function mostracoocke(){
+        document.getElementById('mostrarnome').innerHTML = document.cookie
+    }
+    function Armazena(){
+        localStorage.setItem('nome',document.getElementById('Snome').value)
+    }
+    function recupera(){
+        document.getElementById('mostrarnome').innerHTML = localStorage.getItem('nome');
+    }
+    function eliminaStorge(){
+        localStorage.removeItem('nome')
+    }
+
+    var vPessoa = new pessoa("Marcos","Cardoso", "2000");
+    console.log(vPessoa.getNome())
+    console.log(vPessoa.getSobrenome())
+    console.log(vPessoa.nomeCompleto())        
+</script> 
+<input type="text" name="nome" id="Snome">
+<input type="text" name="Sobrenome" id="Ssobrenome">
+<input type="text" name="Ano de nacimento" id="Snacido">
+<button onclick="salva()">Instacia Pessoa</button>
+<button onclick="SMostrar()">Mostrar nome</button>
+<button onclick="salvacoockie()">salvar coocke</button>
+<button onclick="mostracoocke()">Mostrar coocke</button>
+<button onclick="Armazena()">Amazena historico</button>
+<button onclick="recupera()">recupera historico</button>
+<button onclick="eliminaStorge()">Apagar</button>
+<div id="mostrarnome">
+    <!--objeto.nomeCompleto()-->
+</div>
+<a href="comtinuação.html">outra pagina</a>
+</body>
+</html>
