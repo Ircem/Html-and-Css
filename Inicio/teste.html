@@ -7,13 +7,23 @@
     <title>Document</title>
 </head>
 <script>
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-        element = document.getElementById('op')[]
+    function testo(){
+        const col1 = document.createElement("tr");        
+    for (let index = 0; index < op.length; index++) {
+        const element = array[index]; 
+        const col2 = document.createElement("td")[index];         
+            elemento[index] = document.getElementById('op').CharAT()
         
+        col2[index] = document.getElementById('op').CharAT()
+        col1.appendChild(col2[index]);
+        document.getElementById('tabela').appendChild(col1)
     }
+}
 </script>
 <body>
     <input type="text" id="op">
+    <button onclick="testo()">Não aperte</button>
+    <table id="tabela">
+        <tr><th>col.1</th><th>col.2</th><th>col.3</th><th>col4</th><th>col5</th></tr>
 </body>
 </html>
