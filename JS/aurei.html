@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="classePessoa.js"></script>
+</head>
+<body>
+    <div id="mostra"></div>
+</body>
+    <script>
+        var vPessoa = new pessoa("WILI","Dar Bunda","024")
+        var vetor = [];
+        vetor.push(vPessoa)
+        console.log(vetor[0].Sobrenome)
+        vetor.push('marcos')
+        console.log(vetor)
+        vetor.push('49')
+        console.log(vetor)
+        document.getElementById('mostra').innerHTML = 'novos falor<br>';
+        for (index = 0; index < vetor.length; index++) {
+            document.getElementById('mostra').innerHTML += vetor[index]+'<br>';
+            
+        }
+    </script>
+</html>

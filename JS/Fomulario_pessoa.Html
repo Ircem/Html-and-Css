@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src="classePessoa.js"></script>
+</head>
+<script>
+    //var vPessoa = new pessoa(null,null,null)
+    var vetro = [];    
+    function Salva(){
+     vPessoa = new pessoa(document.getElementById('pNome').value,document.getElementById('pSobrenome').value,'024')
+     vetro.push(vPessoa)
+     localStorage.setItem("pessoaJGON",JSON.stringify(vPessoa));
+    }
+    function chama(){
+        var novapessoa = JSON.parse(localStorage.getItem('pessoaJGON'));
+        document.getElementById('Mostra').innerHTML = novapessoa.Nome+', '+ novapessoa.Sobrenome;        
+
+    }
+    function chama_vetor(){
+        let novaLinha = document.createElement('tr')
+        for(let i = 0; i < vetro.length;i++){
+            let celn = document.createElement('td')
+           // let cel = document.createElement('td') 
+            let but = document.createElement('button')
+            celn.id = 'dt' + i            
+            //cel.id = 'i'
+            but.innerHTML = 'X'
+            but.addEventListener('click', () => { Deletar(celn.id);})
+            novaLinha.appendChild(but)            
+            celn.innerHTML =  i + " = " + vetro[i].Nome + " " + vetro[i].Sobrenome+'<br>'
+            novaLinha.appendChild(celn)
+            //cel.innerHTML =  vetro[i].Sobrenome+'<br>'
+           // novaLinha.appendChild(cel)
+            document.getElementById('t1').appendChild(novaLinha)
+            
+        }
+    }
+    function Deletar(part){        
+        document.getElementById(part).innerHTML = ""
+    }
+
+</script>
+<body>
+    <input type="text" name="nome" id="pNome" placeholder="Nome">
+    <input type="text" name="Sobrenome" id="pSobrenome" placeholder="Sobrenome">
+    <button onclick="Salva()">Salvar pessoa JSON</button>
+    <button onclick="chama()">Mostra Pessoa JSON</button>
+    <br>
+    <button onclick="chama_vetor()">Mostra todos</button>
+    <input type="number" name="Deletar" id="Apagar" placeholder="Deletar Pessoa">
+    <button onclick="Deletar()"></button>
+
+    <div id="Mostra"></div>
+    <table id="t1">
+        
+        <tr><th>col.1</th><th>col.2</th></tr>
+        
+    </table>
+</body>
+</html>

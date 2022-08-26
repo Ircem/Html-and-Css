@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordel</title>
+    <style>
+        .errado{
+            background-color: gray;
+        }
+        .miocerto{
+            background-color: yellow;
+        }
+        .certo{
+            background-color: green;
+        }
+        td{
+            border: 1px solid black;
+            padding: 1vw 2vw;
+            margin: 1vw;
+        }
+    </style>
+        
+    <script>
+
+        function verifica(pEntrada){
+        if (pEntrada.length !== 5) {
+            document.getElementById('entrada').value
+            document.getElementById('entrada').focus
+        }else{
+            let novaLinha = document.createElement('tr')
+            novaLinha = "linha"+nrLinha;
+            for (let index = 0; index < pEntrada.length; index++) {
+                let novaCell = document.createElement('td')
+                novaCell.innerHTML = pEntrada[index].toUppercase()
+                novaCell.classList.toggle('errado')
+                for(j = 0; j < resultado.length;j++){
+                    if(pEntrada[index].toUppercase() == resultado[j].toUppercase()){
+                        novaCell.cl
+                    }
+
+                }
+                
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        Wordel
+    </header>
+    <main>
+        <input type="text" id="entrada" maxlength="5">
+        <button onclick="verifica(document.getElementById('entrada').value)">></button>
+        <table id="resultado"></table>
+    </main>
+</body>
+</html>

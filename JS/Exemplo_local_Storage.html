@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="classePessoa.js"></script>
 </head>
 <body>
     <div id="mostra">
@@ -16,11 +17,19 @@
             sovebrenome: "tonioti",
             idade: 17,
             aluno: true,
+            
 
         };
+
+        var vPessoa = new pessoa("WILI","Dar Bunda","024")
         localStorage.setItem("pessoaJGON",JSON.stringify(pessoaJGON));
+        localStorage.setItem("pessoaJGON2",JSON.stringify(vPessoa));
         var novapessoa = JSON.parse(localStorage.getItem('pessoaJGON'));
-        document.getElementById('mostra').innerHTML = novapessoa.nome      
+        var novapessoa2 = JSON.parse(localStorage.getItem('pessoaJGON2'))
+        document.getElementById('mostra').innerHTML = novapessoa.nome+"<br>"+"SR "+ novapessoa2.Nome+", "+novapessoa2.Sobrenome
+        var vetor = [];
+        vetor.push(vPessoa)
+        console.log(vetor[0].Sobrenome)
     </script>
     
 </body>
